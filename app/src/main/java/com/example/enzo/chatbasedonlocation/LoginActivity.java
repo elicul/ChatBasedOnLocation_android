@@ -1,16 +1,17 @@
 package com.example.enzo.chatbasedonlocation;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-
-import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -18,6 +19,8 @@ import butterknife.InjectView;
 public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
     private static final int REQUEST_SIGNUP = 0;
+    private static String loginURL;
+    public String jsonData;
 
     @InjectView(R.id.input_email) EditText _emailText;
     @InjectView(R.id.input_password) EditText _passwordText;
@@ -29,7 +32,10 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ButterKnife.inject(this);
-        
+
+        AppConfig appConfig = new AppConfig();
+        loginURL = appConfig.URL_LOGIN;
+
         _loginButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -65,17 +71,25 @@ public class LoginActivity extends AppCompatActivity {
         progressDialog.setMessage("Authenticating...");
         progressDialog.show();
 
-        String email = _emailText.getText().toString();
-        String password = _passwordText.getText().toString();
+        final User user = new User();
+        user.email = _emailText.getText().toString();
+        user.password = _passwordText.getText().toString();
 
         // TODO: Implement your own authentication logic here.
+        final CommunicationController<User> communicationController = new CommunicationController<User>(this);
+        try {
+            jsonData = communicationController.ConvertObjectToJson(user);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
 
         new android.os.Handler().postDelayed(
                 new Runnable() {
                     public void run() {
-                        // On complete call either onLoginSuccess or onLoginFailed
+                        int jebac = communicationController.PostLogin(jsonData);
                         onLoginSuccess();
-                        // onLoginFailed();
+
+                        //    onLoginFailed();
                         progressDialog.dismiss();
                     }
                 }, 3000);
@@ -133,4 +147,5 @@ public class LoginActivity extends AppCompatActivity {
 
         return valid;
     }
+
 }
