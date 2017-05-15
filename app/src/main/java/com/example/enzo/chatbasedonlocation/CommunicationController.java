@@ -1,24 +1,14 @@
 package com.example.enzo.chatbasedonlocation;
 
 import android.content.Context;
-import android.util.Log;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.NetworkResponse;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.VolleyLog;
-import com.android.volley.toolbox.HttpHeaderParser;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import org.json.JSONObject;
 
-import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.Iterator;
 
 /**
  * Created by Enzo on 14.5.2017..
@@ -28,8 +18,9 @@ public class CommunicationController<T> {
     private static String loginUrl;
     private static String signupUrl;
     private int responseCode;
-    private JSONObject responseString;
+    private JSONObject jsonResponse;
     private Context context;
+    private String Result;
 
     public CommunicationController(Context context) {
         this.context = context;
@@ -44,50 +35,29 @@ public class CommunicationController<T> {
         return jsonInString;
     }
 
-    // Treba prepravit!
-    public int PostLogin(String jsonData) {
-        RequestQueue requestQueue = Volley.newRequestQueue(context);
-        final String mRequestBody = jsonData;
+    public String getPostDataString(JSONObject params) throws Exception {
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, loginUrl, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                Log.i("LOG_VOLLEY", response);
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.e("LOG_VOLLEY", error.toString());
-            }
-        }) {
-            @Override
-            public String getBodyContentType() {
-                return "application/json; charset=utf-8";
-            }
+        StringBuilder result = new StringBuilder();
+        boolean first = true;
 
-            @Override
-            public byte[] getBody() throws AuthFailureError {
-                try {
-                    return mRequestBody == null ? null : mRequestBody.getBytes("utf-8");
-                } catch (UnsupportedEncodingException uee) {
-                    VolleyLog.wtf("Unsupported Encoding while trying to get the bytes of %s using %s", mRequestBody, "utf-8");
-                    return null;
-                }
-            }
+        Iterator<String> itr = params.keys();
 
-            @Override
-            protected Response<String> parseNetworkResponse(NetworkResponse response) {
-                String responseString = "";
-                if (response != null) {
+        while(itr.hasNext()){
 
-                    responseString = String.valueOf(response.statusCode);
-                    responseCode = response.statusCode;
-                }
-                return Response.success(responseString, HttpHeaderParser.parseCacheHeaders(response));
-            }
-        };
+            String key= itr.next();
+            Object value = params.get(key);
 
-        requestQueue.add(stringRequest);
-        return responseCode;
+            if (first)
+                first = false;
+            else
+                result.append("&");
+
+            result.append(URLEncoder.encode(key, "UTF-8"));
+            result.append("=");
+            result.append(URLEncoder.encode(value.toString(), "UTF-8"));
+
+        }
+        return result.toString();
     }
+
 }

@@ -11,14 +11,31 @@ public class User {
     public String name;
     public String email;
     public String password;
-    public String token;
 
-    public JSONObject toJson() throws JSONException {
-        JSONObject jo = new JSONObject();
-        jo.put("name", name);
-        jo.put("email", email);
-        jo.put("password", password);
-        jo.put("token", token);
-        return jo;
+    public String getName() {
+        return this.name;
+    }
+
+    public String getEmail() {
+        return this.email;
+    }
+
+    public String getPassword() {
+        return this.password;
+    }
+
+    public static User fromJson(JSONObject jsonObject) {
+        User u = new User();
+        // Deserialize json into object fields
+        try {
+            u.name = jsonObject.getString("name");
+            u.email = jsonObject.getString("email");
+            u.password = jsonObject.getString("password");
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return null;
+        }
+        // Return new object
+        return u;
     }
 }

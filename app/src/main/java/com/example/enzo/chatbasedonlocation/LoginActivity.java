@@ -11,7 +11,16 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.fasterxml.jackson.core.JsonProcessingException;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -21,6 +30,7 @@ public class LoginActivity extends AppCompatActivity {
     private static final int REQUEST_SIGNUP = 0;
     private static String loginURL;
     public String jsonData;
+    public final String[] accessToken = new String[1];
 
     @InjectView(R.id.input_email) EditText _emailText;
     @InjectView(R.id.input_password) EditText _passwordText;
@@ -72,8 +82,8 @@ public class LoginActivity extends AppCompatActivity {
         progressDialog.show();
 
         final User user = new User();
-        user.email = _emailText.getText().toString();
-        user.password = _passwordText.getText().toString();
+        user.email = "enzo@gmail.com";
+        user.password = "123456";
 
         // TODO: Implement your own authentication logic here.
         final CommunicationController<User> communicationController = new CommunicationController<User>(this);
@@ -83,13 +93,41 @@ public class LoginActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
+
+
         new android.os.Handler().postDelayed(
                 new Runnable() {
                     public void run() {
-                        int jebac = communicationController.PostLogin(jsonData);
-                        onLoginSuccess();
+                        RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
 
-                        //    onLoginFailed();
+                        String url = "http://locationchatroulette.com/public/api/auth/login";
+                        JsonObjectRequest jsObjRequest = null;
+                        try {
+                            jsObjRequest = new JsonObjectRequest(Request.Method.POST, url, new JSONObject(jsonData), new Response.Listener<JSONObject>() {
+                                @Override
+                                public void onResponse(JSONObject response) {
+                            // TODO Auto-generated method stub
+                                    try {
+                                        jsonData = response.getString("token");
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                            }, new Response.ErrorListener() {
+                                @Override
+                                public void onErrorResponse(VolleyError error) {
+                            // TODO Auto-generated method stub
+                                }
+                            });
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                        queue.add(jsObjRequest);
+
+                        //onLoginSuccess();
+
+                            onLoginFailed();
                         progressDialog.dismiss();
                     }
                 }, 3000);
@@ -120,7 +158,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void onLoginFailed() {
-        Toast.makeText(getBaseContext(), "Login failed", Toast.LENGTH_LONG).show();
+        Toast.makeText(getBaseContext(), "Login failed " + jsonData, Toast.LENGTH_LONG).show();
 
         _loginButton.setEnabled(true);
     }
@@ -149,3 +187,4 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 }
+
