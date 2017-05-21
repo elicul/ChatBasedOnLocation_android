@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">Location chat roulette</string>
 
+    <string name="facebook_app_id">129724434251624</string>
+    <string name="firebase_error_login">Firebase Login Error</string>
+
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 </resources>

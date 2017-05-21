@@ -3,21 +3,66 @@
 
     <item
         is-multidex="true"
-        jar="C:\Users\Enzo\AndroidStudioProjects\ChatBasedOnLocation_android\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jar="C:\Users\Enzo\.android\build-cache\165ead6421dfc44342f106af92696f6ff3500283\output\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.3"
-        sha1="ee630042ad7a5368609cbb6ab31923a882ff6a8f">
-        <dex dex="C:\Users\Enzo\AndroidStudioProjects\ChatBasedOnLocation_android\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_83f0982aa84eafc8fc8174e0d297ebd064475b93\classes.dex" />
+        sha1="8bc45ce1f63d1a391fd38b32a201be5a42f9c95d">
+        <dex dex="C:\Users\Enzo\AndroidStudioProjects\ChatBasedOnLocation_android\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_c93da43ceea573df40b893829b325e8a00933c57\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Enzo\.android\build-cache\92bd740818e9f8c7cccf66861645954edc041146\output\jars\classes.jar"
+        jar="C:\Users\Enzo\.android\build-cache\bf83b5e693ad40402c82220b87a4152c47d3711d\output\jars\libs\internal_impl-25.0.0.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.3"
-        sha1="2cd4b982617e544728de0782d718a58ce1b06e3f">
-        <dex dex="C:\Users\Enzo\AndroidStudioProjects\ChatBasedOnLocation_android\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_77f18ff3540ae0539d775766a48e5430b3aa05cd\classes.dex" />
+        sha1="e5343c9d19cb19ff55f6b268c7f3fe8c9d224f6f">
+        <dex dex="C:\Users\Enzo\AndroidStudioProjects\ChatBasedOnLocation_android\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-25.0.0_84be7fb1587d76d8f234d4d87c1d8b85d7efadf4\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Enzo\.android\build-cache\e9a2e1b659a1edec962a0cb473f11e246809929f\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="4ccbcda5c72027c7f7c14be9ff8640d9cb0d8da0">
+        <dex dex="C:\Users\Enzo\AndroidStudioProjects\ChatBasedOnLocation_android\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_747619d26b0517874719ff5c3dcc54b6a55c075a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Enzo\.android\build-cache\bf83b5e693ad40402c82220b87a4152c47d3711d\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="26674000177e45447a0326a6ad84612761199a13">
+        <dex dex="C:\Users\Enzo\AndroidStudioProjects\ChatBasedOnLocation_android\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_499972c8187549a76bab71d2fd1bdbceac1ff8a4\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Enzo\.android\build-cache\a702a0a4cf1bbc41242f5c9dc206fd46e4b7ed71\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="8a372c4191f80489770a231f7be4820b204b886a">
+        <dex dex="C:\Users\Enzo\AndroidStudioProjects\ChatBasedOnLocation_android\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_6c1db6149a8fe36043bb95b25589b972129c62db\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Enzo\.android\build-cache\2309598ffa394275e4e4c0425198f93a0ed3b38e\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="d29714cc76b38157e3cbd034c66e1ec808eb4c19">
+        <dex dex="C:\Users\Enzo\AndroidStudioProjects\ChatBasedOnLocation_android\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_8162968c63490acc3205d625119e4550a83ed2aa\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Enzo\.android\build-cache\1c6b8ebd1a13f4176f46fb1b1777488a2d2ca55d\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="6116e0e7069de7fc259aac8e08b84f32c2038231">
+        <dex dex="C:\Users\Enzo\AndroidStudioProjects\ChatBasedOnLocation_android\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_a0b0176acd9544249107269669df23b22d5e3a6f\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -27,6 +72,195 @@
         revision="25.0.3"
         sha1="caff8e51a24901cfc9cd7e1cf83d84f4cb0c103b">
         <dex dex="C:\Users\Enzo\AndroidStudioProjects\ChatBasedOnLocation_android\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_17345f198035a423178008c30404d73136d0350f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Enzo\.android\build-cache\0aab6b04d937d8a9d48c95cf52911198e37121c0\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="6addaba208e21c6da776d0ca75b6b23a6ccd5499">
+        <dex dex="C:\Users\Enzo\AndroidStudioProjects\ChatBasedOnLocation_android\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_5c1329cc962774f073e7cc21e199346a57d54941\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Enzo\.android\build-cache\5243efff6c6be48841ee6c1ac5acc7054d50d89b\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="94ba691efc31bf53264db0716d9c9ec03843ea31">
+        <dex dex="C:\Users\Enzo\AndroidStudioProjects\ChatBasedOnLocation_android\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_78c0a6dc5b4fa34fc860e50653117f19d5a2fe4f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Enzo\.android\build-cache\17aac99aa8515f901792ab33e239cef6c6056e19\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="756f6297eef79784f5e356dcd4f39865028b2bd0">
+        <dex dex="C:\Users\Enzo\AndroidStudioProjects\ChatBasedOnLocation_android\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_dffe30061c65b6ac755bec6fec0e778f033d580b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Enzo\.android\build-cache\5b8f1aa1f2274a76136f655fed61353b831182f4\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="9cca2818594cc5348806d6662133491e7ea0fa8d">
+        <dex dex="C:\Users\Enzo\AndroidStudioProjects\ChatBasedOnLocation_android\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_58c1763a9456f068e15b9be956576dc7b588f2a4\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Enzo\.android\build-cache\3a877f42d08b64ab4ab543192541d533ad8b9d61\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="07daa0b6e1d455c82a38422ffe287c18823d339a">
+        <dex dex="C:\Users\Enzo\AndroidStudioProjects\ChatBasedOnLocation_android\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_64e67a8037fa42eb3c7938bb1dfdfb7986a1bd36\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Enzo\.android\build-cache\a643700c0c90bd0e51c9d2419bc21d5f5c603907\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="75b1f366ff0bbc78f8b1f7cf0dc82e7c53afef6a">
+        <dex dex="C:\Users\Enzo\AndroidStudioProjects\ChatBasedOnLocation_android\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_d0cec8da196145511236b1ff2d6ebfdfd3713d11\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Enzo\.android\build-cache\35f3485061bc4502aa0788ccd5a61b249ffb4d92\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="433f4d6aa5f21f19552afe0e6c5eff0fedba73ad">
+        <dex dex="C:\Users\Enzo\AndroidStudioProjects\ChatBasedOnLocation_android\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_e7473fa0d33f74d410ca72ea058ef5c81aa0d413\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Enzo\.android\build-cache\69d646a81c0e132dd874ae8cd6f2663823f407a6\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="eb0d830e3eabb9deb9ec44869cf7ac7ea1ad794c">
+        <dex dex="C:\Users\Enzo\AndroidStudioProjects\ChatBasedOnLocation_android\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_af84e874e39603a61c22b02e5a0baf3452c7a255\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Enzo\.android\build-cache\abd3253e392c8e6d1a1702402a3a5a8ecbd5db2b\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="486371f97baad8e607f332f20fee1d3dd00a731a">
+        <dex dex="C:\Users\Enzo\AndroidStudioProjects\ChatBasedOnLocation_android\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_06245bde11dde576163fa3c04e71d3764d4557f5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Enzo\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-applinks\1.4.0\8ad21bf21784dacce5f2043afb97218cc377e835\bolts-applinks-1.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="8ad21bf21784dacce5f2043afb97218cc377e835">
+        <dex dex="C:\Users\Enzo\AndroidStudioProjects\ChatBasedOnLocation_android\app\build\intermediates\transforms\dex\debug\folders\1000\10\bolts-applinks-1.4.0_07e051c6c96477ef07b789d73b2f0343b6845534\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Enzo\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-tasks\1.4.0\d85884acf6810a3bbbecb587f239005cbc846dc4\bolts-tasks-1.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
+        <dex dex="C:\Users\Enzo\AndroidStudioProjects\ChatBasedOnLocation_android\app\build\intermediates\transforms\dex\debug\folders\1000\10\bolts-tasks-1.4.0_a445e862fec2f188cce60b1045fe5deb37575587\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Enzo\.android\build-cache\a643700c0c90bd0e51c9d2419bc21d5f5c603907\output\jars\libs\internal_impl-25.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="f2e3b9bc1ec25f652e8007ce7774c991e38f6a00">
+        <dex dex="C:\Users\Enzo\AndroidStudioProjects\ChatBasedOnLocation_android\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-25.0.0_23c09ae1c1b6ed6ed84a09ec93540afa3f09d3fc\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Enzo\.android\build-cache\6e357def5f593f71082a1eec8fc7df59ca5dd6df\output\jars\libs\internal_impl-25.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="665d21a8a069c96b4d9e8b434f5096d865b4e261">
+        <dex dex="C:\Users\Enzo\AndroidStudioProjects\ChatBasedOnLocation_android\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-25.0.0_e43f83879d197d638959aa0436824825e7751cae\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Enzo\.android\build-cache\6e357def5f593f71082a1eec8fc7df59ca5dd6df\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="76fb65a4b41ea42dab8a1310ed772a2420c96b52">
+        <dex dex="C:\Users\Enzo\AndroidStudioProjects\ChatBasedOnLocation_android\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_ae8758897d9429b794db1e12c150c857adb84668\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Enzo\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.0.0\support-annotations-25.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="a22d2cc94da87b254451fa8ed28afc30b4653773">
+        <dex dex="C:\Users\Enzo\AndroidStudioProjects\ChatBasedOnLocation_android\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-25.0.0_f4e573dca4dba8773e3c35827d70b58e1577bf33\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Enzo\AndroidStudioProjects\ChatBasedOnLocation_android\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="1ef4a48fa9db2be02972bf437367765c324240e8">
+        <dex dex="C:\Users\Enzo\AndroidStudioProjects\ChatBasedOnLocation_android\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_83f0982aa84eafc8fc8174e0d297ebd064475b93\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Enzo\.android\build-cache\3a877f42d08b64ab4ab543192541d533ad8b9d61\output\jars\libs\internal_impl-25.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="ee5faf4dee5b6a4364bf51587871047dde7c703a">
+        <dex dex="C:\Users\Enzo\AndroidStudioProjects\ChatBasedOnLocation_android\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-25.0.0_ef856eb6b7fa016367bae3271bbfdfc6afb9d805\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Enzo\.android\build-cache\e9a2e1b659a1edec962a0cb473f11e246809929f\output\jars\libs\internal_impl-25.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="3b61a70884adaf0be3fc06c70c801e3e6df13133">
+        <dex dex="C:\Users\Enzo\AndroidStudioProjects\ChatBasedOnLocation_android\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-25.0.0_abf291f9959f11617c897f13834051f453d5d6f2\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Enzo\.android\build-cache\b7031bea5f48e382917bd6c75b446026dc05c310\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\Enzo\AndroidStudioProjects\ChatBasedOnLocation_android\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_b2a5a090ddc6825132764f34e3c38f9bde67a6f5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Enzo\.android\build-cache\a57b312d06b0b605d6d736365af99377705b1680\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="53a420cd4f49274db6bd43475f8006ba67ef6bbd">
+        <dex dex="C:\Users\Enzo\AndroidStudioProjects\ChatBasedOnLocation_android\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_5c8e8b17ecf6fbf5c4557647ea5742f2f0d53a80\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Enzo\.android\build-cache\f0882b29cd6c27cf8c35d2156979da999a477cb0\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="25438f55fc6d906a0e72f30b21487541430ede43">
+        <dex dex="C:\Users\Enzo\AndroidStudioProjects\ChatBasedOnLocation_android\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_16565fc1a56a69f0c8fab487520ac078f04d7c26\classes.dex" />
     </item>
 
 </items>
