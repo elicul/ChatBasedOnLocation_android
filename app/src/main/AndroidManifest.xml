@@ -44,6 +44,7 @@
             android:exported="true" />
 
         <activity android:name=".SignInActivity" />
+        <activity android:name=".UsersActivity" />
 
         <service
             android:name=".MyFirebaseMessagingService"

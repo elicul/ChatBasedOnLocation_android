@@ -404,6 +404,10 @@ public class MainActivity extends AppCompatActivity implements
             case R.id.fresh_config_menu:
                 fetchConfig();
                 return true;
+            case R.id.users_menu:
+                startActivity(new Intent(this, UsersActivity.class));
+                finish();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
