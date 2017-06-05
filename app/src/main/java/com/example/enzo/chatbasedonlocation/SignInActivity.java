@@ -53,7 +53,8 @@ public class SignInActivity extends AppCompatActivity implements GoogleApiClient
         // Assign fields
         mSignInButton = (SignInButton) findViewById(R.id.sign_in_button);
         mLoginButton = (LoginButton) findViewById(R.id.login_button);
-
+        mLoginButton.setReadPermissions(Arrays.asList("email"));
+            
         // Set click listeners
         mSignInButton.setOnClickListener(this);
         mLoginButton.setOnClickListener(this);
