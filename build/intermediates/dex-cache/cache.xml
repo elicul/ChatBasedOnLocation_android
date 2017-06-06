@@ -97,7 +97,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="fafe75cb420419817d4fa5d90e9899fa52a034f4">
+        sha1="a8480d5bba670b2549a2a7e7a96bc8205c199600">
         <dex dex="C:\Users\Enzo\AndroidStudioProjects\ChatBasedOnLocation_android\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_83f0982aa84eafc8fc8174e0d297ebd064475b93\classes.dex" />
     </item>
     <item
@@ -432,15 +432,6 @@
         revision="25.0.2"
         sha1="399f75732ff1ac159f9e73611536f1508bf18d3b">
         <dex dex="C:\Users\Enzo\AndroidStudioProjects\ChatBasedOnLocation_android\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_cf2226016cbed16c7f3d89c6eef3188461aeab74\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Enzo\AndroidStudioProjects\ChatBasedOnLocation_android\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="32c71c37906ee8a62c490b8442af92b0c5e1ffa2">
-        <dex dex="C:\Users\Enzo\AndroidStudioProjects\ChatBasedOnLocation_android\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_83f0982aa84eafc8fc8174e0d297ebd064475b93\classes.dex" />
     </item>
     <item
         is-multidex="true"

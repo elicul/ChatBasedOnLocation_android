@@ -1,7 +1,6 @@
 package com.example.enzo.chatbasedonlocation;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -16,6 +15,7 @@ import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+import com.firebase.client.Firebase;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -25,14 +25,16 @@ import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.*;
-
-import java.util.Arrays;
-import com.firebase.client.Firebase;
-import com.firebase.client.AuthData;
-import com.firebase.client.FirebaseError;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FacebookAuthProvider;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.Arrays;
 
 
 public class SignInActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener,
@@ -76,7 +78,6 @@ public class SignInActivity extends AppCompatActivity implements GoogleApiClient
         // Assign fields
      //   mSignInButton = (SignInButton) findViewById(R.id.sign_in_button);
         mLoginButton = (LoginButton) findViewById(R.id.login_button);
-<<<<<<< HEAD
 
         signInButton = (com.google.android.gms.common.SignInButton)findViewById(R.id.sign_in_button);
 
@@ -84,10 +85,6 @@ public class SignInActivity extends AppCompatActivity implements GoogleApiClient
         mLoginButton.setReadPermissions(Arrays.asList("email"));
         //mSignInButton.setReadPermissions(Arrays.asList("email"));
 
-=======
-        mLoginButton.setReadPermissions(Arrays.asList("email"));
-            
->>>>>>> b9445367c8b8970bcfbb9562a59122d41bf0fd16
         // Set click listeners
 
         signInButton.setOnClickListener(this);
@@ -316,7 +313,6 @@ public class SignInActivity extends AppCompatActivity implements GoogleApiClient
         Toast.makeText(this, "Google Play Services error.", Toast.LENGTH_SHORT).show();
     }
 
-<<<<<<< HEAD
     @Override
     protected void onStart() {
         super.onStart();
@@ -335,6 +331,3 @@ public class SignInActivity extends AppCompatActivity implements GoogleApiClient
         startActivity(intent);
     }
 }
-=======
-}
->>>>>>> b9445367c8b8970bcfbb9562a59122d41bf0fd16
