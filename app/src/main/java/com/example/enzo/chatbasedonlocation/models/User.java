@@ -5,6 +5,7 @@ package com.example.enzo.chatbasedonlocation.models;
  */
 public class User {
     public String uid;
+    public String name;
     public String email;
     public String firebaseToken;
 

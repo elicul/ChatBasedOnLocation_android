@@ -13,6 +13,7 @@ import com.example.enzo.chatbasedonlocation.ui.fragments.RegisterFragment;
 public class RegisterActivity extends AppCompatActivity {
     private Toolbar mToolbar;
 
+
     public static void startActivity(Context context) {
         Intent intent = new Intent(context, RegisterActivity.class);
         context.startActivity(intent);
