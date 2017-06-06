@@ -56,6 +56,10 @@ dependencies {
     compile 'com.firebaseui:firebase-ui-database:1.2.0'
     compile 'com.firebase:firebase-client-android:2.5.2'
 
+    compile 'com.squareup.okhttp3:okhttp:3.4.1'
+
+    compile 'org.greenrobot:eventbus:3.0.0'
+
     testCompile 'junit:junit:4.12'
 }
 

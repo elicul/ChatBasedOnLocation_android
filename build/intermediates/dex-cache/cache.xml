@@ -219,6 +219,24 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\Enzo\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.9.0\f824591a0016efbaeddb8300bee54832a1398cfa\okio-1.9.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="f824591a0016efbaeddb8300bee54832a1398cfa">
+        <dex dex="C:\Users\Enzo\AndroidStudioProjects\ChatBasedOnLocation_android\app\build\intermediates\transforms\dex\debug\folders\1000\10\okio-1.9.0_419659075e15c9c6a86417578b71349f2d0fc9b5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Enzo\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.4.1\c7c4f9e35c2fd5900da24f9872e3971801f08ce0\okhttp-3.4.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c7c4f9e35c2fd5900da24f9872e3971801f08ce0">
+        <dex dex="C:\Users\Enzo\AndroidStudioProjects\ChatBasedOnLocation_android\app\build\intermediates\transforms\dex\debug\folders\1000\10\okhttp-3.4.1_f1517c0e72a2ae3350e7289ab4392845af81e67e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\Enzo\.android\build-cache\4a3ac06278e3c7d5d33f915040c797ccd51ad360\output\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -252,6 +270,15 @@
         revision="25.0.2"
         sha1="25f55515117e14a658120a7b01a9ea5170409db4">
         <dex dex="C:\Users\Enzo\AndroidStudioProjects\ChatBasedOnLocation_android\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_7754ef6bce5583445c3d025c316be725962e90d0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Enzo\.gradle\caches\modules-2\files-2.1\org.greenrobot\eventbus\3.0.0\ddd99896e9569eaababbe81b35d80e1b91c4ad85\eventbus-3.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ddd99896e9569eaababbe81b35d80e1b91c4ad85">
+        <dex dex="C:\Users\Enzo\AndroidStudioProjects\ChatBasedOnLocation_android\app\build\intermediates\transforms\dex\debug\folders\1000\10\eventbus-3.0.0_07ce4b59d5d0096c35d8e816c12c124d84ec59f9\classes.dex" />
     </item>
     <item
         is-multidex="true"
