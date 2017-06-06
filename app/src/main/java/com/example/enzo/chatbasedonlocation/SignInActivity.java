@@ -76,6 +76,7 @@ public class SignInActivity extends AppCompatActivity implements GoogleApiClient
         // Assign fields
      //   mSignInButton = (SignInButton) findViewById(R.id.sign_in_button);
         mLoginButton = (LoginButton) findViewById(R.id.login_button);
+<<<<<<< HEAD
 
         signInButton = (com.google.android.gms.common.SignInButton)findViewById(R.id.sign_in_button);
 
@@ -83,6 +84,10 @@ public class SignInActivity extends AppCompatActivity implements GoogleApiClient
         mLoginButton.setReadPermissions(Arrays.asList("email"));
         //mSignInButton.setReadPermissions(Arrays.asList("email"));
 
+=======
+        mLoginButton.setReadPermissions(Arrays.asList("email"));
+            
+>>>>>>> b9445367c8b8970bcfbb9562a59122d41bf0fd16
         // Set click listeners
 
         signInButton.setOnClickListener(this);
@@ -311,6 +316,7 @@ public class SignInActivity extends AppCompatActivity implements GoogleApiClient
         Toast.makeText(this, "Google Play Services error.", Toast.LENGTH_SHORT).show();
     }
 
+<<<<<<< HEAD
     @Override
     protected void onStart() {
         super.onStart();
@@ -329,3 +335,6 @@ public class SignInActivity extends AppCompatActivity implements GoogleApiClient
         startActivity(intent);
     }
 }
+=======
+}
+>>>>>>> b9445367c8b8970bcfbb9562a59122d41bf0fd16
