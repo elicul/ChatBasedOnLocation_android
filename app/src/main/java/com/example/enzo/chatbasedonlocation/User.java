@@ -1,4 +1,7 @@
 package com.example.enzo.chatbasedonlocation;
+import android.net.Uri;
+
+import com.firebase.client.Firebase;
 
 /**
  * Created by Enzo on 28.5.2017..
@@ -7,22 +10,21 @@ package com.example.enzo.chatbasedonlocation;
 public class User {
     private String id;
     private String name;
-    private String photoUrl;
+    private String email;
+
+
+
 
     public User() {
     }
 
-    public User(String name) {
+
+
+    public User(String name, String email) {
         this.name = name;
+        this.email = email;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
@@ -31,12 +33,22 @@ public class User {
     public void setName(String name) {
         this.name = name;
     }
-
-    public String getPhotoUrl() {
-        return photoUrl;
+    public String getId() {
+        return id;
     }
 
-    public void setPhotoUrl(String photoUrl) {
-        this.photoUrl = photoUrl;
+    public void setId(String id) {
+        this.id = id;
     }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+
+
 }

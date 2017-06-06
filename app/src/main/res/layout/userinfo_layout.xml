@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Set your Data"
+        android:textSize="30sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:id="@+id/textView"/>
+
+
+    <TextView
+        android:text="Range (km): "
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:gravity="bottom"
+        android:id="@+id/intRange"
+        android:layout_marginTop="40dp"
+        android:layout_below="@+id/textView"
+        android:layout_alignStart="@+id/textGender" />
+
+    <EditText
+        android:id="@+id/etRange"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:gravity="bottom"
+        android:inputType="number"
+        android:textAlignment="center"
+        android:layout_marginStart="26dp"
+        android:layout_alignTop="@+id/intRange"
+        android:layout_alignStart="@+id/textView" />
+
+
+    <TextView
+        android:text="Gender: "
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:gravity="bottom"
+        android:id="@+id/textGender"
+        android:layout_alignBottom="@+id/radioGender"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="12dp" />
+
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textGender"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="38dp"
+        android:text="Category:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button" />
+
+
+    <RadioGroup
+        android:id="@+id/radioGender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="28dp"
+        android:layout_below="@+id/etRange"
+        android:layout_alignStart="@+id/etRange"
+        android:layout_alignEnd="@+id/etRange">
+
+        <RadioButton
+            android:id="@+id/radioMale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:checked="false"
+            android:text="Mr."
+            android:textColor="#ff6d6e71" />
+
+        <RadioButton
+            android:id="@+id/radioFemale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:textSize="14dp"
+            android:text="Ms."
+            android:textColor="#ff6d6e71" />
+
+    </RadioGroup>
+
+
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView2"
+        android:layout_marginTop="27dp" />
+
+
+
+
+
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="47dp" />
+
+</RelativeLayout>
