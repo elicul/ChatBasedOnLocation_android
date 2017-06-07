@@ -1,6 +1,8 @@
 package com.example.enzo.chatbasedonlocation;
 
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -14,6 +16,8 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.enzo.chatbasedonlocation.ui.activities.SplashActivity;
+import com.example.enzo.chatbasedonlocation.ui.activities.UserListingActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -46,11 +50,26 @@ public class UserInfo extends AppCompatActivity {
     String gender=null;
     String item;
 
+    /////////
+
+
+    public static void startActivity(Context context) {
+        Intent intent = new Intent(context, UserInfo.class);
+        context.startActivity(intent);
+    }
+
+    public static void startActivity(Context context, int flags) {
+        Intent intent = new Intent(context, UserInfo.class);
+        intent.setFlags(flags);
+        context.startActivity(intent);
+    }
+    ////
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.userinfo_layout);
+
 
         btnSubmit = (Button) findViewById(R.id.btnSubmit);
         mRange = (EditText) findViewById(R.id.etRange);
@@ -182,6 +201,7 @@ public class UserInfo extends AppCompatActivity {
                     toastMessage("New Information has been saved.");
 
                   //  startActivity(new Intent(UserInfo.this, MainActivity.class));
+                    UserListingActivity.startActivity(UserInfo.this);
 
                 }else{
                     toastMessage("Fill out all the fields");

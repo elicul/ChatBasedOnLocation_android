@@ -1,10 +1,12 @@
 package com.example.enzo.chatbasedonlocation.ui.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 
 import com.example.enzo.chatbasedonlocation.R;
+import com.example.enzo.chatbasedonlocation.UserInfo;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class SplashActivity extends AppCompatActivity {
@@ -25,7 +27,9 @@ public class SplashActivity extends AppCompatActivity {
                 // check if user is already logged in or not
                 if (FirebaseAuth.getInstance().getCurrentUser() != null) {
                     // if logged in redirect the user to user listing activity
+                  //  UserListingActivity.startActivity(SplashActivity.this);
                     UserListingActivity.startActivity(SplashActivity.this);
+                   // startActivity(new Intent(SplashActivity.this, UserInfo.class));
                 } else {
                     // otherwise redirect the user to login activity
                     LoginActivity.startIntent(SplashActivity.this);

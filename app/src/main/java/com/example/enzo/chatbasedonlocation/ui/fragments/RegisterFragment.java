@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.enzo.chatbasedonlocation.R;
+import com.example.enzo.chatbasedonlocation.UserInfo;
 import com.example.enzo.chatbasedonlocation.core.registration.RegisterContract;
 import com.example.enzo.chatbasedonlocation.core.registration.RegisterPresenter;
 import com.example.enzo.chatbasedonlocation.core.users.add.AddUserContract;
@@ -111,7 +112,10 @@ public class RegisterFragment extends Fragment implements View.OnClickListener, 
     public void onAddUserSuccess(String message) {
         mProgressDialog.dismiss();
         Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
-        UserListingActivity.startActivity(getActivity(),
+        //UserListingActivity.startActivity(getActivity(),
+         //       Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        Log.e(TAG, "tu sam : ");
+        UserInfo.startActivity(getActivity(),
                 Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
     }
 

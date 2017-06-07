@@ -15,6 +15,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.enzo.chatbasedonlocation.R;
+import com.example.enzo.chatbasedonlocation.User;
+import com.example.enzo.chatbasedonlocation.UserInfo;
 import com.example.enzo.chatbasedonlocation.core.login.LoginContract;
 import com.example.enzo.chatbasedonlocation.core.login.LoginPresenter;
 import com.example.enzo.chatbasedonlocation.ui.activities.RegisterActivity;
@@ -33,6 +35,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
 
 import java.util.Arrays;
 import java.util.concurrent.Executor;
@@ -46,6 +49,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener, Log
     private LoginButton mRegisterFacebookButton;
     private FirebaseAuth mFirebaseAuth;
     private FirebaseAuth.AuthStateListener firebaseAuthListner;
+    private DatabaseReference myRef;
 
     private EditText mETxtEmail, mETxtPassword;
     private Button mBtnLogin, mBtnRegister;
@@ -180,8 +184,8 @@ public class LoginFragment extends Fragment implements View.OnClickListener, Log
                                 String uid = user.getUid();
 
                                 ///dodavanje u bazu
-                                //User userInformation = new User(name,email);
-                                //myRef.child("users").child(uid).setValue(userInformation);
+                                User userInformation = new User(name,email);
+                                myRef.child("users").child(uid).setValue(userInformation);
                             }
 
 
@@ -211,7 +215,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener, Log
     public void onLoginSuccess(String message) {
         mProgressDialog.dismiss();
         Toast.makeText(getActivity(), "Logged in successfully", Toast.LENGTH_SHORT).show();
-        UserListingActivity.startActivity(getActivity(),
+        UserInfo.startActivity(getActivity(),
                 Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
     }
 
