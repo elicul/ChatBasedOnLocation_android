@@ -5,13 +5,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 
 import com.example.enzo.chatbasedonlocation.R;
 import com.example.enzo.chatbasedonlocation.ui.fragments.RegisterFragment;
 
 public class RegisterActivity extends AppCompatActivity {
-    private Toolbar mToolbar;
+    //private Toolbar mToolbar;
 
 
     public static void startActivity(Context context) {
@@ -28,12 +27,12 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void bindViews() {
-        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+       // mToolbar = (Toolbar) findViewById(R.id.toolbar);
     }
 
     private void init() {
         // set the toolbar
-        setSupportActionBar(mToolbar);
+        //setSupportActionBar(mToolbar);
 
         // set the register screen fragment
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
