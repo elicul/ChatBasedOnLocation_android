@@ -18,4 +18,9 @@ public class User {
         this.email = email;
         this.firebaseToken = firebaseToken;
     }
+
+    public User(String uid, String email) {
+        this.uid = uid;
+        this.email = email;
+    }
 }
