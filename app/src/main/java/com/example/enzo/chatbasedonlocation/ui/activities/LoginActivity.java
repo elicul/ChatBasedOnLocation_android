@@ -13,10 +13,10 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.enzo.chatbasedonlocation.R;
-import com.example.enzo.chatbasedonlocation.UserInfo;
 import com.example.enzo.chatbasedonlocation.core.login.LoginContract;
 import com.example.enzo.chatbasedonlocation.core.login.LoginPresenter;
 import com.example.enzo.chatbasedonlocation.models.User;
+import com.example.enzo.chatbasedonlocation.utils.Constants;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -64,6 +64,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private FirebaseAuth mFirebaseAuth;
 
     private ProgressDialog mProgressDialog;
+    private boolean Result;
 
     public static void startIntent(Context context) {
         Intent intent = new Intent(context, LoginActivity.class);
@@ -123,13 +124,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         mBtnGoogleLogin.setOnClickListener(this);
 
         setDummyCredentials();
-        // set the login screen fragment
-        /*
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.frame_layout_content_login,
-                LoginFragment.newInstance(),
-                LoginFragment.class.getSimpleName());
-        fragmentTransaction.commit();*/
     }
 
     private void setDummyCredentials() {
@@ -253,7 +247,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                     database.child("users").child(user.getUid()).setValue(firebaseUser);
                                 }
                             }
-                            UserInfo.startActivity(LoginActivity.this,
+                            UserInfoActivity.startActivity(LoginActivity.this,
                                     Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                             finish();
                         } else {
@@ -291,7 +285,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                     database.child("users").child(user.getUid()).setValue(firebaseUser);
                                 }
                             }
-                            UserInfo.startActivity(LoginActivity.this,
+                            UserInfoActivity.startActivity(LoginActivity.this,
                                     Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                             finish();
                         }
@@ -320,27 +314,25 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         mCallbackManager.onActivityResult(requestCode, resultCode, data);
     }
 
-    public boolean checkIfFirebaseUserExists(FirebaseUser user)
+    public boolean checkIfFirebaseUserExists(final FirebaseUser user)
     {
-        final boolean[] result = new boolean[1];
-        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
-        mDatabase.child("users").child("email").equalTo(user.getEmail()).addListenerForSingleValueEvent(
-                new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        if (dataSnapshot.exists()) {
-                            // User Exists
-                            result[0] = true;
-                        }else{
-                            result[0] = false;
-                        }
-                    }
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-
-                    }
-                });
-        return result[0];
+        Result = false;
+        FirebaseDatabase.getInstance().getReference().child(Constants.ARG_USERS).addListenerForSingleValueEvent(new ValueEventListener() {
+        @Override
+        public void onDataChange(DataSnapshot dataSnapshot) {
+            for(DataSnapshot data: dataSnapshot.getChildren()){
+                if (data.child("email").exists()) {
+                    String value = data.child("email").getValue(String.class);
+                    if(value == user.getEmail())
+                        Result = true;
+                }
+            }
+        }
+        @Override
+        public void onCancelled(DatabaseError databaseError) {
+        }
+        });
+        return Result;
     }
 
     @Override

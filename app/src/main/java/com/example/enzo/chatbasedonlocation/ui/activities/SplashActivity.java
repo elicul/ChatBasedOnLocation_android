@@ -1,12 +1,10 @@
 package com.example.enzo.chatbasedonlocation.ui.activities;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 
 import com.example.enzo.chatbasedonlocation.R;
-import com.example.enzo.chatbasedonlocation.UserInfo;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class SplashActivity extends AppCompatActivity {
