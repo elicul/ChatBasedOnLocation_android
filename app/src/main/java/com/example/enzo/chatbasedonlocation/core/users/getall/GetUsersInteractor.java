@@ -72,7 +72,7 @@ public class GetUsersInteractor implements GetUsersContract.Interactor {
                 uInfo.setRange(dataSnapshot.child(userID).getValue(UserInformation.class).getRange());
 
                 korisnik = uInfo.getEmail();
-           //     Log.d(TAG, "korisnik tu sam " + korisnik);
+                //     Log.d(TAG, "korisnik tu sam " + korisnik);
 
                 korisnik_range = Integer.parseInt(uInfo.getRange());
 
@@ -83,21 +83,21 @@ public class GetUsersInteractor implements GetUsersContract.Interactor {
                     UserInformation specimenDTO = dataSnapshotChild.getValue(UserInformation.class);
 
                     //uključit kad se doda lokacija
-                  //  Float longitude=specimenDTO.getLon();
-                  //  Float latitude=specimenDTO.getLat();
+                    //  Float longitude=specimenDTO.getLon();
+                    //  Float latitude=specimenDTO.getLat();
 
                     //range svih korinika koje izlistavamo
                     range = Integer.parseInt(specimenDTO.getRange());
 
-                  //promjenit da izračunava distance
+                    //promjenit da izračunava distance
                     distance=5;
 
 
 
 
                     if (!TextUtils.equals(user.uid, FirebaseAuth.getInstance().getCurrentUser().getUid())) {
-  /////////////////!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-     ///////////////////ovjde uzima sve korisnike, pa ih prikaže
+                        /////////////////!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                        ///////////////////ovjde uzima sve korisnike, pa ih prikaže
                         users.add(user);
 
                         if(korisnik_range >= distance && range >= distance){
@@ -143,13 +143,13 @@ public class GetUsersInteractor implements GetUsersContract.Interactor {
                     if(info.getVisibility()==1 && korisnik==info.getUser1()) {
 
                         Log.d(TAG, "vidljivost " + info.getUser2());
-       /////////////////////////////////////////ovjde treba dodat usere koje želimo prikazat na ekranu
-               //         users.add(info);
+                        /////////////////////////////////////////ovjde treba dodat usere koje želimo prikazat na ekranu
+                        //         users.add(info);
 
                     }
                 }
 
-             //   mOnGetAllUsersListener.onGetAllUsersSuccess(users);
+                //   mOnGetAllUsersListener.onGetAllUsersSuccess(users);
             }
 
             @Override
@@ -184,4 +184,6 @@ public class GetUsersInteractor implements GetUsersContract.Interactor {
             }
         });*/
     }
+
+
 }
