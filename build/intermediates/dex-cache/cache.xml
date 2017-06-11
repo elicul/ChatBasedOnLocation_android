@@ -21,6 +21,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\Enzo\Documents\ChatBasedOnLocation_android\app\build\intermediates\exploded-aar\com.yahoo.mobile.client.android.util.rangeseekbar\rangeseekbar-library\0.2.0-SNAPSHOT\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="bc4a2961cc290ce9ee1c889add32d5817f5835e3">
+        <dex dex="C:\Users\Enzo\Documents\ChatBasedOnLocation_android\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.yahoo.mobile.client.android.util.rangeseekbar-rangeseekbar-library-0.2.0-SNAPSHOT_251b516bd3fcbcd9cc2cba361b92238693272a61\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\Enzo\Documents\ChatBasedOnLocation_android\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"

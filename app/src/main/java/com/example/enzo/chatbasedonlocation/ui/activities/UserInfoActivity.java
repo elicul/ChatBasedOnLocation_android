@@ -2,17 +2,16 @@ package com.example.enzo.chatbasedonlocation.ui.activities;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.enzo.chatbasedonlocation.CustomOnItemSelectedListener;
@@ -27,6 +26,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.yahoo.mobile.client.android.util.rangeseekbar.RangeSeekBar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +36,7 @@ public class UserInfoActivity extends AppCompatActivity {
     private static final String TAG = "AddToDatabase";
 
     private Button btnSubmit;
-    private EditText mRange;
+    private TextView mSeekBarRangeTxt;
     private String userID;
     private Spinner spinner1;
 
@@ -67,8 +67,19 @@ public class UserInfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_info);
 
+        RangeSeekBar<Integer> rangeSeekBar = (RangeSeekBar<Integer>) findViewById(R.id.rangeSeekBar);
+        rangeSeekBar.setRangeValues(1, 200);
+        rangeSeekBar.setSelectedMaxValue(100);
+        rangeSeekBar.setOnRangeSeekBarChangeListener(new RangeSeekBar.OnRangeSeekBarChangeListener<Integer>(){
+            @Override
+            public void onRangeSeekBarValuesChanged(RangeSeekBar<?> bar, Integer minValue, Integer maxValue) {
+                mSeekBarRangeTxt.setText(maxValue.toString() + " Km");
+                Toast.makeText(getApplicationContext(), "Search distance chaged to " + maxValue + " km", Toast.LENGTH_LONG).show();
+            }
+        });
+
         btnSubmit = (Button) findViewById(R.id.btnSubmit);
-        mRange = (EditText) findViewById(R.id.etRange);
+        mSeekBarRangeTxt = (TextView) findViewById(R.id.seekBarRangeTxt);
         spinner1 = (Spinner) findViewById(R.id.spinner1);
 
         List<String> list = new ArrayList<String>();
@@ -77,6 +88,17 @@ public class UserInfoActivity extends AppCompatActivity {
         list.add("Spinner Data");
         list.add("Spinner Adapter");
         list.add("Spinner Example");
+        list.add("Android");
+        list.add("Java");
+        list.add("Spinner Data");
+        list.add("Spinner Adapter");
+        list.add("Spinner Example");
+        list.add("Android");
+        list.add("Java");
+        list.add("Spinner Data");
+        list.add("Spinner Adapter");
+        list.add("Spinner Example");
+
 
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,list);
 
@@ -88,7 +110,7 @@ public class UserInfoActivity extends AppCompatActivity {
         addListenerOnSpinnerItemSelection();
         // Button click Listener
         addListenerOnButton();
-
+/*
         radioGender=(RadioGroup)findViewById(R.id.radioGender);
         radioGender.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
 
@@ -117,7 +139,7 @@ public class UserInfoActivity extends AppCompatActivity {
                 Log.e("Gender",gender);
             }
         });
-
+*/
         //declare the database reference object. This is what we use to access the database.
         //NOTE: Unless you are signed in, this will not be useable.
         mAuth = FirebaseAuth.getInstance();
@@ -165,7 +187,7 @@ public class UserInfoActivity extends AppCompatActivity {
                 Log.d(TAG, "onClick: Submit pressed.");
 
 
-                String range = mRange.getText().toString();
+                String range = mSeekBarRangeTxt.getText().toString();
                 String interes = addListenerOnButton();
 
                 Log.d(TAG, "onClick: Attempting to submit to database: \n" +

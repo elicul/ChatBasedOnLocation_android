@@ -4,14 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     tools:context="com.example.enzo.chatbasedonlocation.ui.activities.UserInfoActivity">
 
     <RelativeLayout
         android:layout_width="368dp"
         android:layout_height="495dp"
-        android:orientation="vertical"
         tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp">
+        tools:layout_editor_absoluteY="8dp"
+        android:padding="8pt">
 
         <TextView
             android:id="@+id/textView"
@@ -23,101 +24,67 @@
             android:text="Discovery Settings"
             android:textSize="30sp" />
 
-
         <TextView
-            android:id="@+id/intRange"
+            android:id="@+id/intRangeTxt"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:layout_alignStart="@+id/textGender"
+            android:layout_alignParentStart="true"
             android:layout_below="@+id/textView"
             android:layout_marginTop="40dp"
             android:gravity="bottom"
-            android:text="Search distance (km):" />
+            android:text="Search distance:"
+            android:textSize="18sp" />
 
-        <EditText
-            android:id="@+id/etRange"
-            android:layout_width="200dp"
-            android:layout_height="40dp"
+        <TextView
+            android:id="@+id/seekBarRangeTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/rangeSeekBar"
             android:layout_alignParentEnd="true"
-            android:layout_alignTop="@+id/intRange"
-            android:gravity="bottom"
-            android:inputType="number"
-            android:textAlignment="center" />
+            android:layout_marginEnd="13dp"
+            android:text="100 km"
+            android:textColor="@color/bg_login"
+            android:textSize="24sp" />
 
+        <com.yahoo.mobile.client.android.util.rangeseekbar.RangeSeekBar
+            android:id="@+id/rangeSeekBar"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/intRangeTxt"
+            app:absoluteMaxValue="200"
+            app:absoluteMinValue="1"
+            app:showLabels="false"
+            app:singleThumb="true" />
 
         <TextView
-            android:id="@+id/textGender"
+            android:id="@+id/spinnerTxt"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:layout_alignBottom="@+id/radioGender"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="12dp"
+            android:layout_below="@+id/rangeSeekBar"
+            android:layout_marginTop="40dp"
             android:gravity="bottom"
-            android:text="Select your gender:" />
-
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textGender"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="38dp"
-            android:text="Select interests:"
-            android:textAppearance="@style/TextAppearance.AppCompat.Button" />
-
-
-        <RadioGroup
-            android:id="@+id/radioGender"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/etRange"
-            android:layout_alignStart="@+id/etRange"
-            android:layout_below="@+id/etRange"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginTop="28dp"
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:id="@+id/radioMale"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:checked="false"
-                android:text="M"
-                android:textColor="#ff6d6e71" />
-
-            <RadioButton
-                android:id="@+id/radioFemale"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="false"
-                android:text="F"
-                android:textColor="#ff6d6e71"
-                android:textSize="14dp" />
-
-        </RadioGroup>
-
+            android:text="Select an interest category:"
+            android:textSize="18sp" />
 
         <Spinner
             android:id="@+id/spinner1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/textView2"
+            android:layout_below="@+id/spinnerTxt"
             android:layout_marginTop="25dp" />
-
 
         <Button
             android:id="@+id/btnSubmit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/radioGender"
             android:layout_alignParentBottom="true"
-            android:layout_alignStart="@+id/textGender"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
             android:layout_marginBottom="47dp"
-            android:text="Submit" />
+            android:background="?attr/colorAccent"
+            android:text="Save" />
+
 
     </RelativeLayout>
 

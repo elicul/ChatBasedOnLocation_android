@@ -36,10 +36,6 @@ public class UserListingActivity extends AppCompatActivity implements LogoutCont
     private ViewPager mViewPagerUserListing;
     LocationRequest mLocationRequest;
     protected static final String TAG = "UserListingActivity";
-
-    /**
-     * Provides the entry point to Google Play services.
-     */
     protected GoogleApiClient mGoogleApiClient;
     protected Location mLastLocation;
 
@@ -103,11 +99,20 @@ public class UserListingActivity extends AppCompatActivity implements LogoutCont
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.action_user_settings:
+                goToSettings();
+                break;
             case R.id.action_logout:
                 logout();
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void goToSettings(){
+        //Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+        UserInfoActivity.startActivity(this,
+                Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
     }
 
     private void logout() {
