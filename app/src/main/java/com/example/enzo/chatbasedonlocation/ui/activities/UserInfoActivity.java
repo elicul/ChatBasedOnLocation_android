@@ -78,21 +78,20 @@ public class UserInfoActivity extends AppCompatActivity {
         spinner1 = (Spinner) findViewById(R.id.spinner1);
 
         List<String> list = new ArrayList<String>();
-        list.add("Android");
-        list.add("Java");
-        list.add("Spinner Data");
-        list.add("Spinner Adapter");
-        list.add("Spinner Example");
-        list.add("Android");
-        list.add("Java");
-        list.add("Spinner Data");
-        list.add("Spinner Adapter");
-        list.add("Spinner Example");
-        list.add("Android");
-        list.add("Java");
-        list.add("Spinner Data");
-        list.add("Spinner Adapter");
-        list.add("Spinner Example");
+        list.add("Select a category");
+        list.add("Education");
+        list.add("Music");
+        list.add("Games");
+        list.add("Sports & Hobbies");
+        list.add("Other");
+        list.add("Business and Finance");
+        list.add("Computers and Technology");
+        list.add("Health");
+        list.add("Family and Community");
+        list.add("Religion & Spirituality");
+        list.add("Radio & TV");
+        list.add("Friends");
+        list.add("Love & Romance");
 
 
         final ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,list);
@@ -122,15 +121,21 @@ public class UserInfoActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Log.d(TAG, "onDataChange: Added information to database: \n" +
                         dataSnapshot.getValue());
-                if(!dataSnapshot.child(userID).getValue(User.class).getRange().equals(null)){
+                try {
                     Km = dataSnapshot.child(userID).getValue(User.class).getRange();
                     rangeSeekBar.setSelectedMaxValue(Km);
                     mSeekBarRangeTxt.setText(Km.toString() + " Km");
+                } catch (Exception e){
+                    Km = 10;
+                    rangeSeekBar.setSelectedMaxValue(Km);
+                    mSeekBarRangeTxt.setText(Km.toString() + " Km");
                 }
-                if(!dataSnapshot.child(userID).getValue(User.class).getInteres().equals(null)){
+                try {
                     interes = dataSnapshot.child(userID).getValue(User.class).getInteres();
                     int spinnerPosition = dataAdapter.getPosition(interes);
                     spinner1.setSelection(spinnerPosition);
+                } catch (Exception e){
+                    spinner1.setSelection(0);
                 }
             }
             @Override

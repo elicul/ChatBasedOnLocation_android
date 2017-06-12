@@ -9,12 +9,14 @@
     android:paddingBottom="@dimen/padding_small"
     android:paddingEnd="@dimen/padding_avg"
     android:paddingStart="@dimen/padding_avg"
-    android:paddingTop="@dimen/padding_small">
+    android:paddingTop="@dimen/padding_small"
+    android:weightSum="1">
 
     <TextView
         android:id="@+id/text_view_user_alphabet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_weight="0.05"
         android:background="#FF1744"
         android:gravity="center"
         android:maxEms="1"

@@ -35,7 +35,7 @@
         android:maxEms="1"
         android:textAllCaps="true"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="?attr/colorAccent"
+        android:textColor="@color/accent"
         android:textStyle="bold"
         tools:text="a" />
 
