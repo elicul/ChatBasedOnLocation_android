@@ -1,22 +1,13 @@
 package com.example.enzo.chatbasedonlocation.models;
 
-/**
- * Created by delaroy on 4/13/17.
- */
 public class User {
     public String uid;
     public String name;
-
-
     public String email;
     public String firebaseToken;
-    private String user1;
-    private String user2;
-    private Integer visibility;
-    private String range;
-    private Float lon;
-    private Float lat;
-
+    private Integer range;
+    private Double lon;
+    private Double lat;
 
     public User(){
 
@@ -33,54 +24,34 @@ public class User {
         this.email = email;
     }
 
-
-
-    public String getUser1() {
-        return user1;
-    }
-
-    public void setUser1(String user1) {
-        this.user1 = user1;
-    }
-
-    public String getUser2() {
-        return user2;
-    }
-
-    public void setUser2(String user2) {
-        this.user2 = user2;
-    }
-
-    public Integer getVisibility() {
-        return visibility;
-    }
-
-    public void setVisibility(Integer visibility) {
-        this.visibility = visibility;
-    }
-
-
-    public String getRange() {
-        return range;
-    }
-
-    public void setRange(String range) {
-        this.range = range;
-    }
-
-    public Float getLon() {
-        return lon;
-    }
-
-    public void setLon(Float lon) {
+    public User(String uid, String email, Double lat, Double lon){
+        this.uid = uid;
+        this.email = email;
+        this.lat = lat;
         this.lon = lon;
     }
 
-    public Float getLat() {
+    public Integer getRange() {
+        return range;
+    }
+
+    public void setRange(Integer range) {
+        this.range = range;
+    }
+
+    public Double getLon() {
+        return lon;
+    }
+
+    public void setLon(Double lon) {
+        this.lon = lon;
+    }
+
+    public Double getLat() {
         return lat;
     }
 
-    public void setLat(Float lat) {
+    public void setLat(Double lat) {
         this.lat = lat;
     }
 

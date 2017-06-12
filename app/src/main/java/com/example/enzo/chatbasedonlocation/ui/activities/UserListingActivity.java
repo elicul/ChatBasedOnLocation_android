@@ -22,6 +22,7 @@ import android.widget.Toast;
 import com.example.enzo.chatbasedonlocation.R;
 import com.example.enzo.chatbasedonlocation.core.logout.LogoutContract;
 import com.example.enzo.chatbasedonlocation.core.logout.LogoutPresenter;
+import com.example.enzo.chatbasedonlocation.core.users.location.LocationCalculation;
 import com.example.enzo.chatbasedonlocation.ui.adapters.UserListingPagerAdapter;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -57,16 +58,17 @@ public class UserListingActivity extends AppCompatActivity implements LogoutCont
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_listing);
-        bindViews();
 
         boolean permissionGranted = ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED;
 
         if(permissionGranted) {
+            bindViews();
             init();
             buildGoogleApiClient();
         } else {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 200);
         }
+
     }
 
     private void bindViews() {
@@ -110,7 +112,6 @@ public class UserListingActivity extends AppCompatActivity implements LogoutCont
     }
 
     public void goToSettings(){
-        //Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
         UserInfoActivity.startActivity(this,
                 Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
     }
@@ -147,9 +148,6 @@ public class UserListingActivity extends AppCompatActivity implements LogoutCont
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
-    /**
-     * Builds a GoogleApiClient. Uses the addApi() method to request the LocationServices API.
-     */
     protected synchronized void buildGoogleApiClient() {
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .addConnectionCallbacks(this)
@@ -179,51 +177,27 @@ public class UserListingActivity extends AppCompatActivity implements LogoutCont
         }
     }
 
-    /**
-     * Runs when a GoogleApiClient object successfully connects.
-     */
     @Override
     public void onConnected(Bundle connectionHint) {
-        // Provides a simple way of getting a device's location and is well suited for
-        // applications that do not require a fine-grained location and that do not need location
-        // updates. Gets the best and most recent location currently available, which may be null
-        // in rare cases when a location is not available.
-/*
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
-            return;
-        }
-        */
         mLocationRequest = new LocationRequest();
-        mLocationRequest.setInterval(1000);
-        mLocationRequest.setFastestInterval(1000);
+        mLocationRequest.setInterval(10000);
+        mLocationRequest.setFastestInterval(10000);
         mLocationRequest.setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.ACCESS_FINE_LOCATION)
                 == PackageManager.PERMISSION_GRANTED) {
             LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, this);
         }
-
     }
 
     @Override
     public void onConnectionFailed(ConnectionResult result) {
-        // Refer to the javadoc for ConnectionResult to see what error codes might be returned in
-        // onConnectionFailed.
         Log.i(TAG, "Connection failed: ConnectionResult.getErrorCode() = " + result.getErrorCode());
     }
 
 
     @Override
     public void onConnectionSuspended(int cause) {
-        // The connection to Google Play services was lost for some reason. We call connect() to
-        // attempt to re-establish the connection.
         Log.i(TAG, "Connection suspended");
         mGoogleApiClient.connect();
     }
@@ -232,19 +206,15 @@ public class UserListingActivity extends AppCompatActivity implements LogoutCont
     public void onLocationChanged(Location location) {
         mLastLocation = location;
         Location loc = new Location("");
+        LocationCalculation locationCalculation = new LocationCalculation();
 
         if (mLastLocation != null) {
-
-
 
             loc.setLatitude(mLastLocation.getLatitude());
             loc.setLongitude(mLastLocation.getLongitude());
 
-
-
-            Log.d(TAG, "lokacija radi" + loc);
-            //float udaljenost=loc.distanceTo(loc2);
-
+            Log.d(TAG, " Location detected " + loc);
+            locationCalculation.calculateVisibility(loc.getLatitude(), loc.getLongitude());
 
         } else {
             Toast.makeText(this, "No location detected. Make sure location is enabled on the device.", Toast.LENGTH_LONG).show();
@@ -256,7 +226,9 @@ public class UserListingActivity extends AppCompatActivity implements LogoutCont
         switch (requestCode) {
             case 200: {
                 if(grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-
+                    bindViews();
+                    init();
+                    buildGoogleApiClient();
                 }
             }
         }
