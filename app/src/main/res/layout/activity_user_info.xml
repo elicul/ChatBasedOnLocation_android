@@ -78,12 +78,22 @@
             android:id="@+id/btnSubmit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginBottom="47dp"
             android:background="?attr/colorAccent"
-            android:text="Save" />
+            android:text="Save"
+            android:layout_marginTop="39dp"
+            android:layout_below="@+id/spinner1"
+            android:layout_alignStart="@+id/textView"
+            android:layout_marginStart="20dp" />
+        <Button
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#FF1744"
+            android:text="Go Back"
+            android:layout_alignBaseline="@+id/btnSubmit"
+            android:layout_alignBottom="@+id/btnSubmit"
+            android:layout_alignEnd="@+id/textView"
+            android:layout_marginEnd="16dp" />
 
 
     </RelativeLayout>

@@ -35,7 +35,7 @@ public class UserInfoActivity extends AppCompatActivity {
 
     private static final String TAG = "AddToDatabase";
 
-    private Button btnSubmit;
+    private Button btnSubmit, btnBack;
     private TextView mSeekBarRangeTxt;
     private String userID;
     private Spinner spinner1;
@@ -79,6 +79,7 @@ public class UserInfoActivity extends AppCompatActivity {
         });
 
         btnSubmit = (Button) findViewById(R.id.btnSubmit);
+        btnBack = (Button) findViewById(R.id.btnBack);
         mSeekBarRangeTxt = (TextView) findViewById(R.id.seekBarRangeTxt);
         spinner1 = (Spinner) findViewById(R.id.spinner1);
 
@@ -190,29 +191,24 @@ public class UserInfoActivity extends AppCompatActivity {
                 String range = mSeekBarRangeTxt.getText().toString();
                 String interes = addListenerOnButton();
 
-                Log.d(TAG, "onClick: Attempting to submit to database: \n" +
-                        "Range: " + range + "\n" +
-                        "Gender: " + gender + "\n"
+                myRef.child("users").child(userID).child("range").setValue(range);
+                myRef.child("users").child(userID).child("interes").setValue(interes);
 
-                );
-
-                //handle the exception if the EditText fields are null
-                if(!range.equals("") && !gender.equals("") ){
-                    //  UserInformation userInformation = new UserInformation(range,gender, interes);
-                    // myRef.child("users").child(userID).setValue(userInformation);
-                    myRef.child("users").child(userID).child("range").setValue(range);
-                    myRef.child("users").child(userID).child("gender").setValue(gender);
-                    myRef.child("users").child(userID).child("interes").setValue(interes);
-
-                    toastMessage("New Information has been saved.");
+                toastMessage("New Information has been saved.");
 
                     //  startActivity(new Intent(UserInfo.this, MainActivity.class));
-                    UserListingActivity.startActivity(UserInfoActivity.this);
+                UserListingActivity.startActivity(UserInfoActivity.this);
 
-                }else{
-                    toastMessage("Fill out all the fields");
+            }
+        });
 
-                }
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                //  startActivity(new Intent(UserInfo.this, MainActivity.class));
+                UserListingActivity.startActivity(UserInfoActivity.this);
+
             }
         });
     }
