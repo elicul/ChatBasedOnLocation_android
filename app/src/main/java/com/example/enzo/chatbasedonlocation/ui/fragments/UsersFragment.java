@@ -80,6 +80,7 @@ public class UsersFragment extends Fragment implements GetUsersContract.View, It
 
     @Override
     public void onRefresh() {
+        //mGetUsersPresenter.deleteUsers();
         getUsers();
     }
 
