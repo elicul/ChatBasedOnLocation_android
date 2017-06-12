@@ -73,7 +73,7 @@ public class UserInfoActivity extends AppCompatActivity {
         rangeSeekBar.setOnRangeSeekBarChangeListener(new RangeSeekBar.OnRangeSeekBarChangeListener<Integer>(){
             @Override
             public void onRangeSeekBarValuesChanged(RangeSeekBar<?> bar, Integer minValue, Integer maxValue) {
-                mSeekBarRangeTxt.setText(maxValue.toString() + " Km");
+                mSeekBarRangeTxt.setText(maxValue.toString());
                 Toast.makeText(getApplicationContext(), "Search distance chaged to " + maxValue + " km", Toast.LENGTH_LONG).show();
             }
         });
@@ -188,7 +188,7 @@ public class UserInfoActivity extends AppCompatActivity {
                 Log.d(TAG, "onClick: Submit pressed.");
 
 
-                String range = mSeekBarRangeTxt.getText().toString();
+                Float range = Float.parseFloat(mSeekBarRangeTxt.getText().toString());
                 String interes = addListenerOnButton();
 
                 myRef.child("users").child(userID).child("range").setValue(range);
