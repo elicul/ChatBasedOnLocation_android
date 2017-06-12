@@ -3,12 +3,30 @@
 
     <item
         is-multidex="true"
-        jar="/home/lenovo/Documents/faks/ChatBasedOnLocation_android/app/build/intermediates/exploded-aar/com.yahoo.mobile.client.android.util.rangeseekbar/rangeseekbar-library/0.2.0-SNAPSHOT/jars/classes.jar"
-        jumboMode="false"
+        jar="C:\Users\Enzo\Documents\ChatBasedOnLocation_android\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="caff8e51a24901cfc9cd7e1cf83d84f4cb0c103b">
+        <dex dex="C:\Users\Enzo\Documents\ChatBasedOnLocation_android\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_339d2e6db8cf9bdec697bbe9c483b70b8749332f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Enzo\Documents\ChatBasedOnLocation_android\app\build\intermediates\exploded-aar\com.yahoo.mobile.client.android.util.rangeseekbar\rangeseekbar-library\0.2.0-SNAPSHOT\jars\classes.jar"
+        jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="bc4a2961cc290ce9ee1c889add32d5817f5835e3">
-        <dex dex="/home/lenovo/Documents/faks/ChatBasedOnLocation_android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.yahoo.mobile.client.android.util.rangeseekbar-rangeseekbar-library-0.2.0-SNAPSHOT_bfe81b835e63e491eec88b657966acb3c8d9f40a/classes.dex" />
+        <dex dex="C:\Users\Enzo\Documents\ChatBasedOnLocation_android\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.yahoo.mobile.client.android.util.rangeseekbar-rangeseekbar-library-0.2.0-SNAPSHOT_251b516bd3fcbcd9cc2cba361b92238693272a61\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Enzo\Documents\ChatBasedOnLocation_android\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="62b44a2f14d2afbc312a8e131dad263c160cd754">
+        <dex dex="C:\Users\Enzo\Documents\ChatBasedOnLocation_android\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_b39bc098e3dfec626296757b13c8856d3e50ed44\classes.dex" />
     </item>
 
 </items>
