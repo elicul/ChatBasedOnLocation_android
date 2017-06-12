@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_huge"
         android:layout_toStartOf="@+id/text_view_user_alphabet"
-        android:background="?attr/colorAccent"
+        android:background="@color/colorAccent"
         android:padding="@dimen/padding_small"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="@color/accent"
