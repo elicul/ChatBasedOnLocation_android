@@ -98,7 +98,7 @@ public class GetUsersInteractor implements GetUsersContract.Interactor {
                     if (!TextUtils.equals(user.uid, FirebaseAuth.getInstance().getCurrentUser().getUid())) {
                         /////////////////!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                         ///////////////////ovjde uzima sve korisnike, pa ih prikaže
-                        users.add(user);
+                       // users.add(user);
 
                         if(korisnik_range >= distance && range >= distance){
                             visibility=1;
@@ -117,7 +117,7 @@ public class GetUsersInteractor implements GetUsersContract.Interactor {
 
                     }
                 }
-                mOnGetAllUsersListener.onGetAllUsersSuccess(users);
+        //        mOnGetAllUsersListener.onGetAllUsersSuccess(users);
             }
 
             @Override
@@ -138,18 +138,18 @@ public class GetUsersInteractor implements GetUsersContract.Interactor {
                 for (DataSnapshot child : children) {
                     //  UserInformation specimenDTO = child.getValue(UserInformation.class);
 
-                    UserInformation info = child.getValue(UserInformation.class);
+                    User info = child.getValue(User.class);
 
                     if(info.getVisibility()==1 && korisnik==info.getUser1()) {
 
                         Log.d(TAG, "vidljivost " + info.getUser2());
                         /////////////////////////////////////////ovjde treba dodat usere koje želimo prikazat na ekranu
-                        //         users.add(info);
+                                 users.add(info);
 
                     }
                 }
 
-                //   mOnGetAllUsersListener.onGetAllUsersSuccess(users);
+                   mOnGetAllUsersListener.onGetAllUsersSuccess(users);
             }
 
             @Override
