@@ -9,13 +9,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.enzo.chatbasedonlocation.CustomOnItemSelectedListener;
 import com.example.enzo.chatbasedonlocation.R;
+import com.example.enzo.chatbasedonlocation.models.User;
 import com.google.firebase.appindexing.Action;
 import com.google.firebase.appindexing.FirebaseUserActions;
 import com.google.firebase.appindexing.builders.Actions;
@@ -45,10 +45,8 @@ public class UserInfoActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private DatabaseReference myRef;
-
-
-    RadioGroup radioGender;
-    String gender=null;
+    private String interes;
+    private Integer Km;
     String item;
 
     public static void startActivity(Context context) {
@@ -67,16 +65,12 @@ public class UserInfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_info);
 
-        RangeSeekBar<Integer> rangeSeekBar = (RangeSeekBar<Integer>) findViewById(R.id.rangeSeekBar);
-        rangeSeekBar.setRangeValues(1, 200);
-        rangeSeekBar.setSelectedMaxValue(100);
-        rangeSeekBar.setOnRangeSeekBarChangeListener(new RangeSeekBar.OnRangeSeekBarChangeListener<Integer>(){
-            @Override
-            public void onRangeSeekBarValuesChanged(RangeSeekBar<?> bar, Integer minValue, Integer maxValue) {
-                mSeekBarRangeTxt.setText(maxValue.toString());
-                Toast.makeText(getApplicationContext(), "Search distance chaged to " + maxValue + " km", Toast.LENGTH_LONG).show();
-            }
-        });
+        mAuth = FirebaseAuth.getInstance();
+        mFirebaseDatabase = FirebaseDatabase.getInstance();
+        myRef = mFirebaseDatabase.getReference().child("users");
+        FirebaseUser user = mAuth.getCurrentUser();
+        userID = user.getUid();
+        final RangeSeekBar<Integer> rangeSeekBar = (RangeSeekBar<Integer>) findViewById(R.id.rangeSeekBar);
 
         btnSubmit = (Button) findViewById(R.id.btnSubmit);
         btnBack = (Button) findViewById(R.id.btnBack);
@@ -101,84 +95,57 @@ public class UserInfoActivity extends AppCompatActivity {
         list.add("Spinner Example");
 
 
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,list);
+        final ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,list);
 
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
         spinner1.setAdapter(dataAdapter);
-
         // Spinner item selection Listener
         addListenerOnSpinnerItemSelection();
         // Button click Listener
         addListenerOnButton();
-/*
-        radioGender=(RadioGroup)findViewById(R.id.radioGender);
-        radioGender.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                // TODO Auto-generated method stub
-                int childCount = group.getChildCount();
-
-                for (int x = 0; x < childCount; x++) {
-                    RadioButton btn = (RadioButton) group.getChildAt(x);
-
-
-                    if(btn.getId()== R.id.radioMale){
-                        btn.setText("M");
-                    }else{
-                        btn.setText("F");
-                    }
-                    if (btn.getId() == checkedId) {
-
-                        gender=btn.getText().toString();// here gender will contain M or F.
-
-                    }
-
-                }
-
-                Log.e("Gender",gender);
-            }
-        });
-*/
-        //declare the database reference object. This is what we use to access the database.
-        //NOTE: Unless you are signed in, this will not be useable.
-        mAuth = FirebaseAuth.getInstance();
-        mFirebaseDatabase = FirebaseDatabase.getInstance();
-        myRef = mFirebaseDatabase.getReference();
-        FirebaseUser user = mAuth.getCurrentUser();
-        userID = user.getUid();
 
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
-                    // User is signed in
                     Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
-                    // toastMessage("Successfully signed in with: " + user.getEmail());
                 } else {
                     // User is signed out
                     Log.d(TAG, "onAuthStateChanged:signed_out");
                     toastMessage("Successfully signed out.");
                 }
-                // ...
             }
         };
-        // Read from the database
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
                 Log.d(TAG, "onDataChange: Added information to database: \n" +
                         dataSnapshot.getValue());
+                if(!dataSnapshot.child(userID).getValue(User.class).getRange().equals(null)){
+                    Km = dataSnapshot.child(userID).getValue(User.class).getRange();
+                    rangeSeekBar.setSelectedMaxValue(Km);
+                    mSeekBarRangeTxt.setText(Km.toString() + " Km");
+                }
+                if(!dataSnapshot.child(userID).getValue(User.class).getInteres().equals(null)){
+                    interes = dataSnapshot.child(userID).getValue(User.class).getInteres();
+                    int spinnerPosition = dataAdapter.getPosition(interes);
+                    spinner1.setSelection(spinnerPosition);
+                }
             }
-
             @Override
             public void onCancelled(DatabaseError error) {
-                // Failed to read value
                 Log.w(TAG, "Failed to read value.", error.toException());
+            }
+        });
+
+        rangeSeekBar.setRangeValues(1, 200);
+        rangeSeekBar.setOnRangeSeekBarChangeListener(new RangeSeekBar.OnRangeSeekBarChangeListener<Integer>(){
+            @Override
+            public void onRangeSeekBarValuesChanged(RangeSeekBar<?> bar, Integer minValue, Integer maxValue) {
+                Km = maxValue;
+                mSeekBarRangeTxt.setText(maxValue.toString() + " Km");
+                Toast.makeText(getApplicationContext(), "Search distance chaged to " + maxValue + " km", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -187,18 +154,15 @@ public class UserInfoActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Log.d(TAG, "onClick: Submit pressed.");
 
-
-                Float range = Float.parseFloat(mSeekBarRangeTxt.getText().toString());
+                Float range = Float.parseFloat(Km.toString());
                 String interes = addListenerOnButton();
 
-                myRef.child("users").child(userID).child("range").setValue(range);
-                myRef.child("users").child(userID).child("interes").setValue(interes);
+                myRef.child(userID).child("range").setValue(range);
+                myRef.child(userID).child("interes").setValue(interes);
 
                 toastMessage("New Information has been saved.");
 
-                    //  startActivity(new Intent(UserInfo.this, MainActivity.class));
                 UserListingActivity.startActivity(UserInfoActivity.this);
-
             }
         });
 
@@ -206,7 +170,6 @@ public class UserInfoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                //  startActivity(new Intent(UserInfo.this, MainActivity.class));
                 UserListingActivity.startActivity(UserInfoActivity.this);
 
             }
@@ -225,7 +188,7 @@ public class UserInfoActivity extends AppCompatActivity {
     @Override
     public void onStop() {
         super.onStop();// ATTENTION: This was auto-generated to implement the App Indexing API.
-// See https://g.co/AppIndexing/AndroidStudio for more information.
+    // See https://g.co/AppIndexing/AndroidStudio for more information.
         FirebaseUserActions.getInstance().end(getIndexApiAction());
         if (mAuthListener != null) {
             mAuth.removeAuthStateListener(mAuthListener);
@@ -246,11 +209,8 @@ public class UserInfoActivity extends AppCompatActivity {
     public String addListenerOnButton() {
 
         spinner1 = (Spinner) findViewById(R.id.spinner1);
-
         item = String.valueOf(spinner1.getSelectedItem());
-
         return item;
-
 
     }
 

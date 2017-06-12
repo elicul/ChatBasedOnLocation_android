@@ -25,7 +25,6 @@ public class GetUsersInteractor implements GetUsersContract.Interactor {
     private FirebaseUser firebaseUser;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private DatabaseReference myRef;
-    Integer visibility;
     private User currentUser;
 
     List<User> users = new ArrayList<>();
@@ -40,12 +39,9 @@ public class GetUsersInteractor implements GetUsersContract.Interactor {
 
     @Override
     public void getAllUsersFromFirebase() {
-
         // Read from the database
         myRef = FirebaseDatabase.getInstance().getReference();
-
         myRef.child("locations").addValueEventListener(new ValueEventListener()  {
-
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Iterable<DataSnapshot> children = dataSnapshot.getChildren();
@@ -56,11 +52,10 @@ public class GetUsersInteractor implements GetUsersContract.Interactor {
                             @Override
                             public void onDataChange(DataSnapshot dataSnapshot) {
                                 Iterable<DataSnapshot> children = dataSnapshot.getChildren();
-                                users.clear();
                                 for (DataSnapshot child : children) {
                                     User dbUser = child.getValue(User.class);
                                     if(dbUser.email.equals(visibleUsers.getUser_2())) {
-                                        users.add(dbUser);
+                                       users.add(dbUser);
                                     }
                                 }
                             }
@@ -79,6 +74,11 @@ public class GetUsersInteractor implements GetUsersContract.Interactor {
                 Log.w(TAG, "Failed to read users!", error.toException());
             }
         });
+    }
+
+    @Override
+    public void deleteUsersList() {
+        users.clear();
     }
 
     @Override

@@ -5,6 +5,7 @@ public class User {
     public String name;
     public String email;
     public String firebaseToken;
+    public String interes;
     private Integer range;
     private Double lon;
     private Double lat;
@@ -33,6 +34,14 @@ public class User {
 
     public Integer getRange() {
         return range;
+    }
+
+    public void setInteres(String interes){
+        this.interes = interes;
+    }
+
+    public String getInteres(){
+        return interes;
     }
 
     public void setRange(Integer range) {

@@ -19,13 +19,13 @@ public interface GetUsersContract {
 
     interface Presenter {
         void getAllUsers();
-
+        void deleteUsers();
         void getChatUsers();
     }
 
     interface Interactor {
         void getAllUsersFromFirebase();
-
+        void deleteUsersList();
         void getChatUsersFromFirebase();
     }
 
