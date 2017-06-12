@@ -1,7 +1,6 @@
 package com.example.enzo.chatbasedonlocation.ui.adapters;
 
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,8 +15,6 @@ import java.util.List;
 
 public class UserListingRecyclerAdapter extends RecyclerView.Adapter<UserListingRecyclerAdapter.ViewHolder> {
     private List<User> mUsers;
-    private static final String TAG = "RecyclerAdapter";
-
 
     public UserListingRecyclerAdapter(List<User> users) {
         this.mUsers = users;
@@ -38,12 +35,9 @@ public class UserListingRecyclerAdapter extends RecyclerView.Adapter<UserListing
     public void onBindViewHolder(ViewHolder holder, int position) {
         User user = mUsers.get(position);
 
+        String alphabet = user.email.substring(0, 1);
 
-        String alphabet = user.getUser2().substring(0, 1);
-
-      //  Log.d(TAG, "vid" + user.);
-
-        holder.txtUsername.setText(user.getUser2());
+        holder.txtUsername.setText(user.email);
         holder.txtUserAlphabet.setText(alphabet);
     }
 
