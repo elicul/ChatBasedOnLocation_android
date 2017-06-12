@@ -29,12 +29,21 @@ public class GetUsersInteractor implements GetUsersContract.Interactor {
 
     List<User> users = new ArrayList<>();
 
-
     public GetUsersInteractor(GetUsersContract.OnGetAllUsersListener onGetAllUsersListener) {
         this.mOnGetAllUsersListener = onGetAllUsersListener;
         mAuth = FirebaseAuth.getInstance();
         firebaseUser = mAuth.getCurrentUser();
         currentUser = new User(firebaseUser.getUid(), firebaseUser.getEmail());
+    }
+
+    public boolean userAlreadyAdded(User dbUser){
+        boolean result = false;
+        for (User listUser: users) {
+            if(listUser.getEmail().equals(dbUser.getEmail())){
+                result = true;
+            }
+        }
+        return result;
     }
 
     @Override
@@ -51,11 +60,17 @@ public class GetUsersInteractor implements GetUsersContract.Interactor {
                         myRef.child("users").addValueEventListener(new ValueEventListener()  {
                             @Override
                             public void onDataChange(DataSnapshot dataSnapshot) {
+                                currentUser.setInteres(dataSnapshot.child(currentUser.uid).getValue(User.class).getInteres());
                                 Iterable<DataSnapshot> children = dataSnapshot.getChildren();
                                 for (DataSnapshot child : children) {
                                     User dbUser = child.getValue(User.class);
                                     if(dbUser.email.equals(visibleUsers.getUser_2())) {
-                                       users.add(dbUser);
+                                        if(currentUser.getInteres().equals(dbUser.getInteres())){
+                                            if(!userAlreadyAdded(dbUser))
+                                            {
+                                                users.add(dbUser);
+                                            }
+                                        }
                                     }
                                 }
                             }
