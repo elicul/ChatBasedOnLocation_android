@@ -135,7 +135,7 @@ public class UserInfoActivity extends AppCompatActivity {
                     int spinnerPosition = dataAdapter.getPosition(interes);
                     spinner1.setSelection(spinnerPosition);
                 } catch (Exception e){
-                    spinner1.setSelection(0);
+                    spinner1.setSelection(1);
                 }
             }
             @Override
